@@ -1,0 +1,14 @@
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.Properties.Resources.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.cache
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.csproj.CoreCompileInputs.cache
+C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\LMS.exe.config
+C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\LMS.exe
+C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\LMS.pdb
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.exe
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.pdb
+C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\lms.mdf
+C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\lms_log.ldf
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.login.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.changepassword.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.mainscreen.resources
