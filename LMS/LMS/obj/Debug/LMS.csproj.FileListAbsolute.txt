@@ -10,5 +10,9 @@ C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\lms.mdf
 C:\Users\sonir\Desktop\LMS\LMS\bin\Debug\lms_log.ldf
 C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.login.resources
 C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.changepassword.resources
-C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
 C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.mainscreen.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.gpa.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.updateinformation.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.courselist.resources
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
+C:\Users\sonir\Desktop\LMS\LMS\obj\Debug\LMS.administrator.resources

@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="administrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="administrator.Designer.cs">
+      <DependentUpon>administrator.cs</DependentUpon>
+    </Compile>
     <Compile Include="courselist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,15 @@
     <Compile Include="updateinformation.Designer.cs">
       <DependentUpon>updateinformation.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="administrator.resx">
+      <DependentUpon>administrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="courselist.resx">
+      <DependentUpon>courselist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gpa.resx">
+      <DependentUpon>gpa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +131,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="updateinformation.resx">
+      <DependentUpon>updateinformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="LMScd.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

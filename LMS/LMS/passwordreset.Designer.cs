@@ -31,13 +31,13 @@
             this.newpasswordlabel = new System.Windows.Forms.Label();
             this.idtextbox = new System.Windows.Forms.TextBox();
             this.changepasswordgroupbox = new System.Windows.Forms.GroupBox();
+            this.exitbutton = new System.Windows.Forms.Button();
+            this.passwordcheckbox = new System.Windows.Forms.CheckBox();
             this.backbutton = new System.Windows.Forms.Button();
             this.resetbutton = new System.Windows.Forms.Button();
             this.usernamelabel = new System.Windows.Forms.Label();
             this.newpasswordtextbox = new System.Windows.Forms.TextBox();
             this.errormessagelabel = new System.Windows.Forms.Label();
-            this.passwordcheckbox = new System.Windows.Forms.CheckBox();
-            this.exitbutton = new System.Windows.Forms.Button();
             this.changepasswordgroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,14 +70,36 @@
             this.changepasswordgroupbox.Controls.Add(this.idtextbox);
             this.changepasswordgroupbox.Location = new System.Drawing.Point(12, 30);
             this.changepasswordgroupbox.Name = "changepasswordgroupbox";
-            this.changepasswordgroupbox.Size = new System.Drawing.Size(262, 95);
+            this.changepasswordgroupbox.Size = new System.Drawing.Size(279, 95);
             this.changepasswordgroupbox.TabIndex = 4;
             this.changepasswordgroupbox.TabStop = false;
             this.changepasswordgroupbox.Text = "Reset Password";
             // 
+            // exitbutton
+            // 
+            this.exitbutton.Location = new System.Drawing.Point(198, 66);
+            this.exitbutton.Name = "exitbutton";
+            this.exitbutton.Size = new System.Drawing.Size(75, 23);
+            this.exitbutton.TabIndex = 7;
+            this.exitbutton.Text = "Exit";
+            this.exitbutton.UseVisualStyleBackColor = true;
+            this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
+            // 
+            // passwordcheckbox
+            // 
+            this.passwordcheckbox.AutoSize = true;
+            this.passwordcheckbox.Location = new System.Drawing.Point(198, 39);
+            this.passwordcheckbox.Name = "passwordcheckbox";
+            this.passwordcheckbox.Size = new System.Drawing.Size(53, 17);
+            this.passwordcheckbox.TabIndex = 6;
+            this.passwordcheckbox.Text = "Show";
+            this.passwordcheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.passwordcheckbox.UseVisualStyleBackColor = true;
+            this.passwordcheckbox.CheckedChanged += new System.EventHandler(this.passwordcheckbox_CheckedChanged_1);
+            // 
             // backbutton
             // 
-            this.backbutton.Location = new System.Drawing.Point(93, 66);
+            this.backbutton.Location = new System.Drawing.Point(117, 66);
             this.backbutton.Name = "backbutton";
             this.backbutton.Size = new System.Drawing.Size(75, 23);
             this.backbutton.TabIndex = 5;
@@ -87,7 +109,7 @@
             // 
             // resetbutton
             // 
-            this.resetbutton.Location = new System.Drawing.Point(12, 66);
+            this.resetbutton.Location = new System.Drawing.Point(36, 66);
             this.resetbutton.Name = "resetbutton";
             this.resetbutton.Size = new System.Drawing.Size(75, 23);
             this.resetbutton.TabIndex = 4;
@@ -118,37 +140,15 @@
             this.errormessagelabel.ForeColor = System.Drawing.Color.Red;
             this.errormessagelabel.Location = new System.Drawing.Point(9, 9);
             this.errormessagelabel.Name = "errormessagelabel";
-            this.errormessagelabel.Size = new System.Drawing.Size(265, 18);
+            this.errormessagelabel.Size = new System.Drawing.Size(282, 18);
             this.errormessagelabel.TabIndex = 6;
             this.errormessagelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // passwordcheckbox
-            // 
-            this.passwordcheckbox.AutoSize = true;
-            this.passwordcheckbox.Location = new System.Drawing.Point(198, 39);
-            this.passwordcheckbox.Name = "passwordcheckbox";
-            this.passwordcheckbox.Size = new System.Drawing.Size(53, 17);
-            this.passwordcheckbox.TabIndex = 6;
-            this.passwordcheckbox.Text = "Show";
-            this.passwordcheckbox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.passwordcheckbox.UseVisualStyleBackColor = true;
-            this.passwordcheckbox.CheckedChanged += new System.EventHandler(this.passwordcheckbox_CheckedChanged_1);
-            // 
-            // exitbutton
-            // 
-            this.exitbutton.Location = new System.Drawing.Point(174, 66);
-            this.exitbutton.Name = "exitbutton";
-            this.exitbutton.Size = new System.Drawing.Size(75, 23);
-            this.exitbutton.TabIndex = 7;
-            this.exitbutton.Text = "Exit";
-            this.exitbutton.UseVisualStyleBackColor = true;
-            this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
             // 
             // changepassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 137);
+            this.ClientSize = new System.Drawing.Size(303, 137);
             this.Controls.Add(this.errormessagelabel);
             this.Controls.Add(this.changepasswordgroupbox);
             this.Name = "changepassword";

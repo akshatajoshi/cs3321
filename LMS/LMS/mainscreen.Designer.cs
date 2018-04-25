@@ -34,6 +34,7 @@
             this.enrolledclassesbutton = new System.Windows.Forms.Button();
             this.gpabutton = new System.Windows.Forms.Button();
             this.logoutbutton = new System.Windows.Forms.Button();
+            this.secretlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // welcomelabel
@@ -50,12 +51,12 @@
             this.studentnamelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentnamelabel.Location = new System.Drawing.Point(70, 9);
             this.studentnamelabel.Name = "studentnamelabel";
-            this.studentnamelabel.Size = new System.Drawing.Size(123, 13);
+            this.studentnamelabel.Size = new System.Drawing.Size(219, 13);
             this.studentnamelabel.TabIndex = 1;
             // 
             // updatebutton
             // 
-            this.updatebutton.Location = new System.Drawing.Point(45, 34);
+            this.updatebutton.Location = new System.Drawing.Point(12, 34);
             this.updatebutton.Name = "updatebutton";
             this.updatebutton.Size = new System.Drawing.Size(116, 23);
             this.updatebutton.TabIndex = 8;
@@ -65,7 +66,7 @@
             // 
             // enrolledclassesbutton
             // 
-            this.enrolledclassesbutton.Location = new System.Drawing.Point(63, 63);
+            this.enrolledclassesbutton.Location = new System.Drawing.Point(134, 34);
             this.enrolledclassesbutton.Name = "enrolledclassesbutton";
             this.enrolledclassesbutton.Size = new System.Drawing.Size(75, 23);
             this.enrolledclassesbutton.TabIndex = 9;
@@ -75,7 +76,7 @@
             // 
             // gpabutton
             // 
-            this.gpabutton.Location = new System.Drawing.Point(63, 92);
+            this.gpabutton.Location = new System.Drawing.Point(214, 34);
             this.gpabutton.Name = "gpabutton";
             this.gpabutton.Size = new System.Drawing.Size(75, 23);
             this.gpabutton.TabIndex = 10;
@@ -85,7 +86,7 @@
             // 
             // logoutbutton
             // 
-            this.logoutbutton.Location = new System.Drawing.Point(63, 121);
+            this.logoutbutton.Location = new System.Drawing.Point(227, 63);
             this.logoutbutton.Name = "logoutbutton";
             this.logoutbutton.Size = new System.Drawing.Size(75, 23);
             this.logoutbutton.TabIndex = 11;
@@ -93,11 +94,22 @@
             this.logoutbutton.UseVisualStyleBackColor = true;
             this.logoutbutton.Click += new System.EventHandler(this.logoutbutton_Click);
             // 
+            // secretlabel
+            // 
+            this.secretlabel.AutoSize = true;
+            this.secretlabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.secretlabel.Location = new System.Drawing.Point(12, 68);
+            this.secretlabel.Name = "secretlabel";
+            this.secretlabel.Size = new System.Drawing.Size(0, 13);
+            this.secretlabel.TabIndex = 12;
+            this.secretlabel.Visible = false;
+            // 
             // mainscreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 151);
+            this.ClientSize = new System.Drawing.Size(314, 95);
+            this.Controls.Add(this.secretlabel);
             this.Controls.Add(this.logoutbutton);
             this.Controls.Add(this.gpabutton);
             this.Controls.Add(this.enrolledclassesbutton);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.Button enrolledclassesbutton;
         private System.Windows.Forms.Button gpabutton;
         private System.Windows.Forms.Button logoutbutton;
+        private System.Windows.Forms.Label secretlabel;
     }
 }

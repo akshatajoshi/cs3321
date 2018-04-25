@@ -15,11 +15,20 @@ namespace LMS
 {
     public partial class login : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
         public login()
         {
             InitializeComponent();
+            string username = usernametextbox.Text;
             passwordtextbox.UseSystemPasswordChar = true;
+        }
+
+        public mainscreen username
+        {
+            get => default(mainscreen);
+            set
+            {
+            }
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
@@ -29,24 +38,37 @@ namespace LMS
                 errormessagelabel.Text = "Feilds cannot be left blank.";
                 usernametextbox.Text = string.Empty;
                 passwordtextbox.Text = string.Empty;
-            } else
+            }
+            else
             {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM student WHERE username ='" + usernametextbox.Text.Trim() + "' AND password ='" + passwordtextbox.Text + "'", connection);
-                DataTable datatable = new DataTable();
-                adapter.Fill(datatable);
-                if (datatable.Rows.Count == 0)
+                errormessagelabel.Text = string.Empty;
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT username, password FROM student WHERE username =@username AND password =@password", sqlConnection);
+                dataAdapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = usernametextbox.Text;
+                dataAdapter.SelectCommand.Parameters.Add("@password", SqlDbType.NVarChar).Value = passwordtextbox.Text;
+                sqlConnection.Open();
+                dataAdapter.Fill(dataSet, "student");
+                if (dataSet.Tables[0].Rows.Count == 0)
                 {
                     errormessagelabel.Text = "Username or password is incorrect.";
                     usernametextbox.Text = string.Empty;
                     passwordtextbox.Text = string.Empty;
+                    sqlConnection.Close();
+                }
+                else if (dataSet.Tables[0].Rows[0][0].ToString() == "admin")
+                {
+                    this.Hide();
+                    new administrator().Show();
                 }
                 else
                 {
-                    this.Close();
+                    this.Hide();
+                    new mainscreen(usernametextbox.Text).Show();
                 }
             }
-        }
+            sqlConnection.Close();
+        } 
 
         private void exitbutton_Click(object sender, EventArgs e)
         {

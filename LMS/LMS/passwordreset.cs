@@ -14,7 +14,7 @@ namespace LMS
 {
     public partial class changepassword : Form
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
         public changepassword()
         {
             InitializeComponent();
@@ -23,45 +23,50 @@ namespace LMS
 
         private void resetbutton_Click(object sender, EventArgs e)
         {
-            //Check if usernametextbox.Text is a number*
-            int n = 0;
+            int numeric = 0;
             if (idtextbox.Text == string.Empty || newpasswordtextbox.Text == string.Empty || (idtextbox.Text == string.Empty && newpasswordtextbox.Text == string.Empty))
             {
                 errormessagelabel.Text = "Feilds cannot be left blank.";
                 idtextbox.Text = string.Empty;
                 newpasswordtextbox.Text = string.Empty;
             }
-            else if (int.TryParse(idtextbox.Text, out n))
+            else if (!(int.TryParse(idtextbox.Text, out numeric)))
             {
-                errormessagelabel.Text = "Feilds cannot be left blank.";
+                errormessagelabel.Text = "Incorrect ID.";
                 idtextbox.Text = string.Empty;
                 newpasswordtextbox.Text = string.Empty;
             }
             else
             {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM student WHERE sID ='" + idtextbox.Text.Trim() + "'", connection);
-                DataTable datatable = new DataTable();
-                adapter.Fill(datatable);
-                if (datatable.Rows.Count == 1)
+                errormessagelabel.Text = string.Empty;
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT sID FROM student WHERE sID =@sID", sqlConnection);
+                dataAdapter.SelectCommand.Parameters.Add("@sID", SqlDbType.Int).Value = idtextbox.Text;
+                sqlConnection.Open();
+                dataAdapter.Fill(dataSet, "student");
+                if (dataSet.Tables[0].Rows.Count == 0)
                 {
-                    SqlCommand searchID = new SqlCommand("UPDATE student SET password = @p WHERE sID = @i", connection);
-                    searchID.Parameters.Add("p", newpasswordtextbox.Text);
-                    searchID.Parameters.Add("i", idtextbox.Text);
-                    searchID.ExecuteNonQuery();
-                    errormessagelabel.Text = "Password has been reset.";
-                    Console.ReadLine();
+                    errormessagelabel.Text = "Incorrect ID.";
+                    idtextbox.Text = string.Empty;
+                    newpasswordtextbox.Text = string.Empty;
+                    sqlConnection.Close();
                 }
                 else
                 {
-                    errormessagelabel.Text = "Username is incorrect.";
+                    dataAdapter.SelectCommand = new SqlCommand("UPDATE student SET password =@password WHERE sID =@sID", sqlConnection);
+                    dataAdapter.SelectCommand.Parameters.Add("@password", SqlDbType.NVarChar).Value = newpasswordtextbox.Text;
+                    dataAdapter.SelectCommand.Parameters.Add("@sID", SqlDbType.Int).Value = idtextbox.Text;
+                    dataAdapter.SelectCommand.ExecuteNonQuery();
+                    errormessagelabel.Text = "Password Updated.";
+                    sqlConnection.Close();
                 }
             }
         }
 
         private void backbutton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             new login().Show();
         }
 

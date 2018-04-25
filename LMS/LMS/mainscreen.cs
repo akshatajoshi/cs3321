@@ -14,13 +14,19 @@ namespace LMS
 {
     public partial class mainscreen : Form
     {
-        private login name; 
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
-        public mainscreen()
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\sonir\Desktop\LMS\LMS\lms.mdf;Integrated Security=True");
+        public mainscreen(string username)
         {
             InitializeComponent();
-            name = new login();
-            connection.Open();
+            DataSet dataSet = new DataSet();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT firstname, lastname FROM student WHERE username =@username", sqlConnection);
+            dataAdapter.SelectCommand.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
+            sqlConnection.Open();
+            dataAdapter.Fill(dataSet);
+            studentnamelabel.Text = dataSet.Tables[0].Rows[0][0].ToString() + " " + dataSet.Tables[0].Rows[0][1].ToString();
+            sqlConnection.Close();
+            secretlabel.Text = username; //Bad code! :c
         }
 
         private void mainscreen_Load(object sender, EventArgs e)
@@ -31,24 +37,27 @@ namespace LMS
         private void updatebutton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new updateinformation().Show();
+            new updateinformation(secretlabel.Text).Show();
         }
 
         private void enrolledclassesbutton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new courselist().Show();
+            new courselist(secretlabel.Text).Show();
         }
 
         private void gpabutton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new gpa().Show();
+            new gpa(secretlabel.Text).Show();
         }
 
         private void logoutbutton_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            this.Hide();
+            new login().Show();
         }
+
+
     }
 }
